@@ -1,53 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Senai - Livraria Vue</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
-    #app { max-width: 800px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    h1 { color: #4fc08d; text-align: center; }
-    .livros { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
-    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; text-align: center; }
-    .card h3 { margin-top: 0; color: #333; }
-    .card p { color: #666; font-size: 0.9rem; }
-    button { background: #4fc08d; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 8px; }
-    button:hover { background: #38a169; }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>Livraria Vue</h1>
-    <p style="text-align:center; color:#666;">Descubra ótimos livros para ler.</p>
-    <div class="livros">
-      <div v-for="(livro, index) in livros" :key="index" class="card">
-        <h3>{{ livro.titulo }}</h3>
-        <p>{{ livro.autor }}</p>
-        <button @click="selecionar(livro)">Selecionar</button>
-      </div>
-    </div>
-    <div v-if="selecionado" class="card" style="margin-top:24px">
-      <h3>Selecionado: {{ selecionado.titulo }}</h3>
-      <p>{{ selecionado.descricao }}</p>
-    </div>
-  </div>
-  <script>
-    const { createApp, ref } = Vue;
-    createApp({
-      setup() {
-        const livros = ref([
-          { titulo: 'Clean Code', autor: 'Robert C. Martin', descricao: 'Guia de boas práticas de programação.' },
-          { titulo: 'Design Patterns', autor: 'Gang of Four', descricao: 'Padrões de projeto de software.' },
-          { titulo: 'Você Sabe JS?', autor: 'Kyle Simpson', descricao: 'Aprofundamento em JavaScript.' },
-          { titulo: 'Refactoring', autor: 'Martin Fowler', descricao: 'Melhoria do design de código existente.' },
-        ]);
-        const selecionado = ref(null);
-        function selecionar(livro) { selecionado.value = livro; }
-        return { livros, selecionado, selecionar };
-      }
-    }).mount('#app');
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Senai - Livraria Vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
